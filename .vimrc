@@ -1,36 +1,95 @@
+" Don't try to be vi compatible
+set nocompatible
+
+" Helps force plugins to load correctly when it is turned back on below
+filetype off
+
+" TODO: Load plugins here (pathogen or vundle)
+
+" Turn on syntax highlighting
 syntax on
-set packpath='/Users/chris/.vim/pack'
-set background=dark
+
+" For plugins to load correctly
+filetype plugin indent on
+
+" TODO: Pick a leader key
+" let mapleader = ","
+
+" Security
+set modelines=0
+
+" Show line numbers
+set number
+
+" Show file stats
+set ruler
+
+" Encoding
+set encoding=utf-8
+
+" Whitespace
+set wrap
+set textwidth=79
+set formatoptions=tcqrn1
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set noshiftround
+
+" Cursor motion
+set scrolloff=3
+set backspace=indent,eol,start
+set matchpairs+=<:> " use % to jump between pairs
+runtime! macros/matchit.vim
+
+" Move up/down editor lines
+nnoremap j gj
+nnoremap k gk
+
+" Allow hidden buffers
+set hidden
+
+" Rendering
+set ttyfast
+
+" Status bar
+set laststatus=2
+
+" Last line
+set showmode
+set showcmd
+
+" Searching
+nnoremap / /\v
+vnoremap / /\v
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+map <leader><space> :let @/=''<cr> " clear search
+
+" Remap help key.
+inoremap <F1> <ESC>:set invfullscreen<CR>a
+nnoremap <F1> :set invfullscreen<CR>
+vnoremap <F1> :set invfullscreen<CR>
+
+" Textmate holdouts
+
+" Formatting
+map <leader>q gqip
+
+" Visualize tabs and newlines
+set listchars=tab:▸\ ,eol:¬
+" Uncomment this to enable by default:
+" set list " To enable by default
+" Or use your leader key + l to toggle on/off
+map <leader>l :set list!<CR> " Toggle tabs and EOL
+
+" Color scheme (terminal)
+" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
+" in ~/.vim/colors/ and uncomment:
+" set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
-set timeoutlen=80"sets timeout to 100ms for exiting modes
-set number "turns on line numbering
-set relativenumber "turns on relative numbering
-set numberwidth=4 "set line numbers to 4 space widths
-set showmode "always show mode for editing
-set showcmd "show command in bottom bar
-set wildmenu "visual autocomplete for command menu
-set cursorline "highlight current line
-set ruler "show line and cursor position at bottom
-set tabstop=2 "tab is 2 spaces
-set softtabstop=2 "tab setting when editing
-set expandtab "use spaces for tab
-set smarttab
-set shiftwidth=2 "2 spaces for autoindenting"
-set shiftround "use multiple of shiftwidth when indenting with '<' and '>'
-set autoindent "autoindent on
-set smartindent
-set copyindent "copy previous indentation on autoindent
-set smartcase "ignore case if search pattern is all lowercase
-set showmatch "show matching parenthesis
-set incsearch "search as characters are entered
-" Change cursor shape between insert and normal mode in iTerm2.app
-if $TERM_PROGRAM =~ "iTerm"
-    let &t_SI = "\<Esc>]50;CursorShape=1\x7" " Vertical bar in insert mode
-    let &t_SR = "\<Esc>]50;CursorShape=2\x7" " something in Replace mode
-    let &t_EI = "\<Esc>]50;CursorShape=0\x7" " Block in normal mode
-endif
-" Changes to visually signify insert or replace modes
-autocmd InsertEnter * set cursorline!
-autocmd InsertLeave * set cursorline!
-
