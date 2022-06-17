@@ -88,8 +88,5 @@ set listchars=tab:▸\ ,eol:¬
 map <leader>l :set list!<CR> " Toggle tabs and EOL
 
 " Color scheme (terminal)
-" put https://raw.github.com/altercation/vim-colors-solarized/master/colors/solarized.vim
-" in ~/.vim/colors/ and uncomment:
-" set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
+colorscheme desert
+
