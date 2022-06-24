@@ -16,3 +16,17 @@ Follow [this strategy](https://www.jakewiesler.com/blog/managing-dotfiles)
 - Markdown Here
 - Vimium
 - Markdown Viewer
+
+### Sync VS Code Extensions:
+
+To export:
+
+```shell
+echo '#!/bin/sh' > vs_code_backup.sh && chmod +x ./vs_code_backup.sh \
+&& code --list-extensions | xargs -L 1 echo code --install-extension \
+| cat >> vs_code_backup.sh
+```
+
+To setup from previous export:
+
+`./vs_code_backup.sh`
