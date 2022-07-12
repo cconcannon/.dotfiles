@@ -39,3 +39,8 @@ sudo hdiutil attach Docker.dmg
 sudo /Volumes/Docker/Docker.app/Contents/MacOS/install --accept-license
 sudo hdiutil detach /Volumes/Docker
 ```
+
+### Install `gcloud`
+
+https://cloud.google.com/sdk/docs/install-sdk
+
