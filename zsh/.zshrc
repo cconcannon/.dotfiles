@@ -104,25 +104,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias note="cd ~/src/github.com/cconcannon/sourcegraph-notes && vim scratch.md"
-alias notes="cd ~/src/github.com/cconcannon/sourcegraph-notes"
-alias disco="cp ~/src/github.com/cconcannon/sourcegraph-notes/ce/process/discovery/disco-notes.md . && vim ./disco-notes.md"
-alias src-local="docker run \
---publish 7080:7080 \
---publish 127.0.0.1:3370:3370 \
---rm \
---volume ~/.sourcegraph/config:/etc/sourcegraph \
---volume ~/.sourcegraph/data:/var/opt/sourcegraph \
---platform linux/amd64 \
-sourcegraph/server:3.41.0"
-
-# Functions
-customer ()
-{
-  mkdir -p -- "~/src/github.com/cconcannon/sourcegraph-notes/customers/$1" &&
-  cd -P -- "~/src/github.com/cconcannon/sourcegraph-notes/customers/$1"
-}
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/chrisconcannon/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chrisconcannon/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 

@@ -38,6 +38,10 @@ set softtabstop=2
 set expandtab
 set noshiftround
 
+" Indenting
+set autoindent
+set smartindent
+
 " markdown
 au BufRead,BufNewFile *.md setlocal textwidth=0
 
