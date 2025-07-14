@@ -76,11 +76,10 @@ plugins=(
   zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export OBSIDIAN_PATH="$HOME/src/github.com/cconcannon/para"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
@@ -104,14 +103,18 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/chrisconcannon/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/chrisconcannon/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/chrisconcannon/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/chrisconcannon/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 autoload -U +X bashcompinit && bashcompinit
-complete -o nospace -C /opt/homebrew/bin/terraform terraform
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Functions
+nn() {
+    local FILENAME="$(date +"%Y%m%d_%H%M%S").md"
+    cp "$OBSIDIAN_PATH/resources/templates/zettel.md" "$OBSIDIAN_PATH/resources/zettelkasten/$FILENAME"
+    nvim "$OBSIDIAN_PATH/resources/zettelkasten/$FILENAME"
+}
